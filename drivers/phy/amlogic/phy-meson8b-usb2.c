@@ -199,13 +199,13 @@ static int phy_meson8b_usb2_power_on(struct phy *phy)
 			udelay(ACA_ENABLE_COMPLETE_TIME);
 
 			regmap_read(priv->regmap, REG_ADP_BC, &reg);
-			/*if (reg & REG_ADP_BC_ACA_PIN_FLOAT) {
+			if (reg & REG_ADP_BC_ACA_PIN_FLOAT) {
 				dev_warn(&phy->dev, "USB ID detect failed!\n");
 				clk_disable_unprepare(priv->clk_usb);
 				clk_disable_unprepare(priv->clk_usb_general);
 				reset_control_rearm(priv->reset);
 				return -EINVAL;
-			}*/
+			}
 		}
 	}
 
